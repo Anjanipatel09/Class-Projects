@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Select a Vehicle Type</h2>
+  <select id="vehicleDropdown" onchange="showSection()">
+    <option value="">-- Select --</option>
+    <option value="bike">1. Bike</option>
+    <option value="car">2. Car</option>
+    <option value="truck">3. Truck</option>
+  </select>
+
+  <!-- Sections -->
+  <div id="bike" class="section">
+    <h3>Bike Section</h3>
+    <p>Welcome to the Bike section. Here you can see different bikes.</p>
+    <img src="bike.jpeg" alt="">
+  </div>
+
+  <div id="car" class="section">
+    <h3>Car Section</h3>
+    <p>Welcome to the Car section. Explore our cars collection.</p>
+    <img src="car.jpeg" alt="">
+  </div>
+
+  <div id="truck" class="section">
+    <h3>Truck Section</h3>
+    <p>Welcome to the Truck section. Find powerful trucks here.</p>
+    <img src="truck.jpeg" alt="">
+  </div>
+
+  <script>
+    function showSection() {
+      const selected = document.getElementById("vehicleDropdown").value;
+      const sections = document.querySelectorAll(".section");
+
+      sections.forEach(section => {
+        section.classList.remove("active");
+      });
+
+      if (selected) {
+        document.getElementById(selected).classList.add("active");
+      }
+    }
+  </script>
+
+</body>
+</html>

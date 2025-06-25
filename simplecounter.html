@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Counter</title>
+  <style>
+    .counter-box {
+      text-align: center;
+      margin: 20px;
+      font-family: Arial;
+    
+    }
+    .number {
+      font-size: 30px;
+      color: blue;
+     
+    }
+    .label {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+ 
+  <div class="counter-box">
+    <div class="number" id="counter1">0</div>
+    <div class="label">Happy Clients</div>
+  </div>
+  <div class="counter-box">
+    <div class="number" id="counter2">0</div>
+    <div class="label">Team Members</div>
+  </div>
+  <div class="counter-box">
+    <div class="number" id="counter3">0</div>
+    <div class="label">Awesome Tours</div>
+  </div>
+  <div class="counter-box">
+    <div class="number" id="counter4">0</div>
+    <div class="label">Awards</div>
+  </div>
+
+  <script>
+    // Target values
+    const targets = [1730, 1080, 1812, 190];
+    // Counter IDs
+    const ids = ['counter1', 'counter2', 'counter3', 'counter4'];
+
+    for (let i = 0; i < targets.length; i++) {
+      let count = 0;
+      let interval = setInterval(function () {
+        if (count < targets[i]) {
+          count += 10; // speed of counting
+          if (count > targets[i]) count = targets[i]; // stop at exact number
+          document.getElementById(ids[i]).innerText = count;
+        } else {
+          clearInterval(interval);
+        }
+      }, 10); // speed in milliseconds
+    }
+  </script>
+
+</body>
+</html>
